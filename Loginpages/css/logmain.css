@@ -1,0 +1,58 @@
+* {
+  margin: auto;
+  padding: 0;
+  box-shadow: border-box;
+  font-family: "Montserrat", sans-serif;
+  /* background: ; */
+}
+.backgroud img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: -1;
+}
+header {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  width: 1000px;
+  height: 40px;
+  margin: 10px 0 10px 50px;
+}
+.logo img {
+  height: 40px;
+}
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.main {
+  margin: 40px;
+  align-items: center;
+}
+.authBox {
+  display: flex;
+  background: #13001f;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  /* height: max-content; */
+  /* justify-content: space-between; */
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .authBox {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
+  }
+}

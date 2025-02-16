@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RBA ACADEMY | Our Courses </title>
+
+    <!-- Custom fonts for this template-->
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="assets/central1/css/main.css">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/central1/css/background.css">`
+    <link rel="stylesheet" href="assets/central1/css/main.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            /* background-color: #000; */
+            color: #cacaca;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .body-header {
+            position: relative;
+            background: url("assets/image/job_role.png")
+                /*no-repeat center/cover*/
+            ;
+            height: 300px;
+            text-align: center;
+            margin: 0 -50px;
+            margin-bottom: 30px !important;
+        }
+
+        .body-header h1 {
+            color: white;
+            font-size: 2.5rem;
+            padding-top: 50px;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        .body-header p {
+            padding: 50px;
+            color: #969292;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .buttons button {
+            background: linear-gradient(45deg, #00811a, #145400);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .buttons button:hover {
+            background: linear-gradient(45deg, #036902, #095501);
+            transform: scale(1.1);
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 10px;
+            background: linear-gradient(45deg, #10ab02, #074f00);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: linear-gradient(45deg, #00b309, #005809);
+            transform: scale(1.1);
+        }
+
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-left: -50px;
+            margin-right: -50px;
+        }
+
+        .certificate {
+            background: #13001f;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+            border: 3px solid transparent;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .certificate:nth-child(odd) {
+            animation: fadeInLeft 0.8s ease;
+        }
+
+        .certificate:nth-child(even) {
+            animation: fadeInRight 0.8s ease;
+        }
+
+        .certificate:hover {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border-color: #ff0055;
+        }
+
+        .certificate img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .progress-container {
+            width: 100%;
+            display: flex;
+            gap: 30px;
+            background-color: #06000d;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .progress-container span a {
+            text-decoration: none;
+            background-color: #13001f;
+            padding: 12px;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 70px;
+
+        }
+
+        .progress-bar {
+            width: 70%;
+            background-color: #e0e0e0;
+            /* Light grey background for the progress bar */
+            border-radius: 5px;
+            overflow: hidden;
+            height: 10px;
+            /* Smaller height for the progress bar */
+            margin: 10px;
+        }
+
+        .progress {
+            /* height: 100%; */
+            background-color: #025e04;
+            /* Blue color for the progress indicator */
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        /* Badge for completion status */
+
+        .more-details {
+            background: linear-gradient(45deg, #048415, #053c01);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, width 0.3s;
+            animation: fadeInRight 1s ease;
+            transition: transform 0.3s, background 0.3s;
+            /* font-size: ; */
+            flex-wrap: nowrap;
+            width: 70px;
+            margin-top: 15px !important;
+        }
+
+        .more-details:hover {
+            background: linear-gradient(45deg, #1a6300, #0b2800);
+            transform: scale(1.1);
+            text-decoration: none;
+            border-radius: 5px #043300;
+            color: #fff;
+        }
+
+        .price-section {
+            gap: 10px !important;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .certificates {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .certificate {
+                width: 100%;
+            }
+
+            .certificate {
+                animation: stackEffect 0.5s ease-in-out;
+            }
+
+            .body-header p {
+                padding: 20px;
+                color: #969292;
+                font-size: 10px;
+            }
+
+            @keyframes stackEffect {
+                from {
+                    transform: translateY(50px);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <body id="page-top">
+
+        <!------------------- HEADER ------------------->
+        <header class="header">
+            <div class="header-content">
+                <nav class="top-navbar">
+                    <div class="navbar-brand">
+                        <img src="assets/image/icon/RBA4.png" alt="RBA Academy Logo">
+                    </div>
+
+                    <ul class="topnavbar-items">
+                        <li class="nav-items">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="cert.html">Certification</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="courses.html">Courses</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="path.html">Path</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="modules.html">Modules</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="faq.html">FAQ</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="news.html">Blog</a>
+                        </li>
+                        <li class="nav-items">
+                            <a href="partnership/partnership.html">Partnership</a>
+                        </li>
+                    </ul>
+
+
+                    <a href=""><button class="bton bton-primary bton-modify" id="header-bton">
+                            <p class="bton-text">Register / Signup</p>
+                            <span class="square Hsquare"></span>
+                        </button>
+                    </a>
+
+                    <button class="nav-toggle-bton">
+                        <span class="one1"></span>
+                        <span class="two2"></span>
+                        <span class="three3"></span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+
+
+
+                    <!--                        MAIN BODY PROPER              -->
+
+
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        <div class="container-fluid">
+
+
+                            <section class="body-header">
+                                <h1>OUR COURSES</h1>
+
+                                <div class="search-bar">
+                                    <input type="text" placeholder="Search certifications...">
+                                    <button>Search</button>
+                                </div>
+
+                                <p>When certification is a man then Cosmos is a God.When certification is a man then
+                                    Cosmos is a GodWhen certification is a man then Cosmos is a GodWhen certification is
+                                    a man then Cosmos is a GodWhen certification is a man then Cosmos is a God</p>
+                            </section>
+
+                            <div class="certificates">
+                                <div class="certificate">
+                                    <img src="assets/image/GCert1.jpg" alt="Cybersecurity Certificate">
+                                    <div class="card-content">
+                                        <h3 class="certification-title">HTB Certified Penetration Testing Specialist
+                                        </h3>
+
+                                        <div class="exam-details">
+                                            <span>58 Modules</span>
+                                            <span>17 Paths</span>
+                                            <span>17 Paths</span>
+                                        </div>
+
+
+                                        <p class="job-role">Related Job Role Path <br><span>Penetration
+                                                Tester</span></p>
+                                        <div class="price-section">
+                                            <p class="price-label">Get certified for</p>
+                                            <p class="price">$490</p><br>
+                                            <a href="" class="more-details">Learn More</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="progress-container">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%;"></div>
+                                        </div>
+                                        <span><a href="">View</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="certificate">
+                                    <img src="assets/image/GCert1.jpg" alt="Cybersecurity Certificate">
+                                    <div class="card-content">
+                                        <h3 class="certification-title">HTB Certified Penetration Testing Specialist
+                                        </h3>
+
+                                        <div class="exam-details">
+                                            <span>58 Modules</span>
+                                            <span>17 Paths</span>
+                                            <span>17 Paths</span>
+                                        </div>
+
+
+                                        <p class="job-role">Related Job Role Path <br><span>Penetration
+                                                Tester</span></p>
+                                        <div class="price-section">
+                                            <p class="price-label">Get certified for</p>
+                                            <p class="price">$490</p><br>
+                                            <a href="" class="more-details">Learn More</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="progress-container">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%;"></div>
+                                        </div>
+                                        <span><a href="">View</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="certificate">
+                                    <img src="assets/image/GCert1.jpg" alt="Cybersecurity Certificate">
+                                    <div class="card-content">
+                                        <h3 class="certification-title">HTB Certified Penetration Testing Specialist
+                                        </h3>
+
+                                        <div class="exam-details">
+                                            <span>58 Modules</span>
+                                            <span>17 Paths</span>
+                                            <span>17 Paths</span>
+                                        </div>
+
+
+                                        <p class="job-role">Related Job Role Path <br><span>Penetration
+                                                Tester</span></p>
+                                        <div class="price-section">
+                                            <p class="price-label">Get certified for</p>
+                                            <p class="price">$490</p><br>
+                                            <a href="" class="more-details">Learn More</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="progress-container">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%;"></div>
+                                        </div>
+                                        <span><a href="">View</a></span>
+                                    </div>
+                                </div>
+
+                                <div class="certificate">
+                                    <img src="assets/image/GCert1.jpg" alt="Cybersecurity Certificate">
+                                    <div class="card-content">
+                                        <h3 class="certification-title">HTB Certified Penetration Testing Specialist
+                                        </h3>
+
+                                        <div class="exam-details">
+                                            <span>58 Modules</span>
+                                            <span>17 Paths</span>
+                                            <span>17 Paths</span>
+                                        </div>
+
+
+                                        <p class="job-role">Related Job Role Path <br><span>Penetration
+                                                Tester</span></p>
+                                        <div class="price-section">
+                                            <p class="price-label">Get certified for</p>
+                                            <p class="price">$490</p><br>
+                                            <a href="" class="more-details">Learn More</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="progress-container">
+                                        <div class="progress-bar">
+                                            <div class="progress" style="width: 70%;"></div>
+                                        </div>
+                                        <span><a href="">View</a></span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+                <!------------------- FOOTER ------------------->
+                <footer class="academy-footer-condensed flex-shrink-0">
+                    <div class="academy-footer-submenu">
+                        <div class="container px-0 mb-16">
+                            <nav class="navbar navbar-dark justify-content-center py-32 px-0">
+                                <ul
+                                    class="navbar-nav d-flex flex-row justify-content-center align-items-center flex-wrap font-size-16">
+                                    <li class="nav-item col-lg-auto mb-lg-0 mb-24">
+                                        <span class="mr-24">2025 © RBA Academy</span>
+                                    </li>
+                                    <li class="nav-item col-lg-auto col-xs-6">
+                                        <a href=" " class="nav-link mr-16">Terms of Service</a>
+                                    </li>
+                                    <li class="nav-item col-lg-auto col-xs-6">
+                                        <a href=" " class="nav-link mr-16">Privacy Policy</a>
+                                    </li>
+                                    <li class="nav-item col-lg-auto col-xs-6">
+                                        <a href=" " class="nav-link mr-16">Acceptable Use Policy</a>
+                                    </li>
+                                    <li class="nav-item col-lg-auto col-xs-6">
+                                        <a href=" " class="nav-link mr-16">FAQ</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <script src="assets/js/index.js"></script>
+
+    </body>
+
+</html>
+
+</body>
+
+</html>

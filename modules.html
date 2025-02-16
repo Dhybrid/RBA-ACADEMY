@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <link rel="stylesheet" href="assets/css/modules.css">
+  <link href="assets/boostrap/boostrap1/assets/css/lib/themify-icons.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="{% static 'asset/index.css' %}"> -->
+
+  <!-- CSS:Plugins -->
+  <!-- <link rel="stylesheet" href="assets/boostrap/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/boostrap/vendors/mdi/css/materialdesignicons.min.css">
+
+  <link href="assets/boostrap/boostrap1/css/style.css" rel="stylesheet">
+ -->
+  <!-- Custom styles for this template-->
+
+
+  <link href="assets/boostrap/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="assets/css/index.css" rel="stylesheet">
+  <link href="assets/central1/css/background.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!------------------- HEADER ------------------->
+  <header class="header">
+    <div class="header-content">
+      <nav class="top-navbar">
+        <div class="navbar-brand">
+          <img src="assets/image/icon/RBA4.png" alt="RBA Academy Logo">
+        </div>
+
+        <ul class="topnavbar-items">
+          <li class="nav-items">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="nav-items">
+            <a href="cert.html">Certification</a>
+          </li>
+          <li class="nav-items">
+            <a href="courses.html">Courses</a>
+          </li>
+          <li class="nav-items">
+            <a href="path.html">Path</a>
+          </li>
+          <li class="nav-items">
+            <a href="modules.html">Modules</a>
+          </li>
+          <li class="nav-items">
+            <a href="faq.html">FAQ</a>
+          </li>
+          <li class="nav-items">
+            <a href="news.html">Blog</a>
+          </li>
+          <li class="nav-items">
+            <a href="partnership/partnership.html">Partnership</a>
+          </li>
+        </ul>
+
+
+        <a href=""><button class="bton bton-primary bton-modify" id="header-bton">
+            <p class="bton-text">Register / Signup</p>
+            <span class="square Hsquare"></span>
+          </button>
+        </a>
+
+        <button class="nav-toggle-bton">
+          <span class="one1"></span>
+          <span class="two2"></span>
+          <span class="three3"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- Header Section -->
+    <header class="courses-header">
+      <div class="overlay">
+        <nav class="top-nav">
+          <input type="search" placeholder="Search for courses..." class="search-bar">
+        </nav>
+        <h1>Explore Our Modules</h1>
+        <p>Advance your skills with interactive training and industry certifications.</p>
+      </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="filters">
+      <div class="toogle-filter">
+        <a href="" class="filter-btn" onclick="filterCourses('all')">All</a>
+        <a href="" class="filter-btn" onclick="filterCourses('path')">Path</a>
+        <a href="" class="filter-btn" onclick="filterCourses('modules')">Modules</a>
+        <a href="" class="filter-btn" onclick="filterCourses('free')">Free</a>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-grid">
+      <div class="course-card" data-category="path">
+        <img src="assets/image/course1.jpg" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 10 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+
+      <div class="course-card" data-category="modules free">
+        <img src="assets/image/cet2.png" alt="Course Image">
+        <h3>Intro to Python</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 12 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+
+      <div class="course-card" data-category="path free">
+        <img src="assets/image/cet1.png" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 23 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+
+
+      <div class="course-card" data-category="modules">
+        <img src="assets/image/cet1.png" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 24 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+      <div class="course-card" data-category="path free">
+        <img src="assets/image/cet1.png" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 30 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+
+      <div class="course-card" data-category="path free">
+        <img src="assets/image/cet1.png" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 50 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+
+      <div class="course-card" data-category="modules">
+        <img src="assets/image/cet1.png" alt="Course Image">
+        <h3>Cybersecurity Basics</h3>
+        <p class="job-role">Related Job Role Path <br><span>Ethical
+            Hacker</span></p>
+        <div class="details">
+          <div class="left">
+            <p> 8 Modules</p>
+            <p> 70 Sections</p>
+          </div>
+          <div class="right">
+            <div class="cost">$299</div>
+            <a href="">UNLOCK</a>
+          </div>
+        </div>
+        <span class="tag free">Free</span>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress" style="width: 70%;"></div>
+          </div>
+          <span><a href="">View</a></span>
+        </div>
+      </div>
+
+      <!-- Additional course cards here -->
+    </section>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  </div>
+
+  <script src="assest/js/modules.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.header {
+    background-image: url('your-background-image-url.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px; /* Larger padding for the header */
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.language-choice select {
+    font-size: 1rem;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.hero-title {
+    font-size: 2.5rem; /* Bold and larger title */
+    margin: 20px 0;
+}
+
+.search-container {
+    margin: 20px 0;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 400px; /* Limit the width of the search input */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+main {
+    max-width: 1200px; /* Increase max width for larger screens */
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.articles {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Create columns */
+    gap: 20px; /* Space between articles */
+}
+
+.article {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid transparent; /* Initial border */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    cursor: pointer; /* Changes cursor on hover */
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .header {
+        padding: 40px 10px; /* Adjust header padding for smaller screens */
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Smaller title for mobile */
+    }
+
+    .search-container input {
+        max-width: 90%; /* Adjust search input width */
+    }
+
+    .article {
+        padding: 15px; /* Adjust article padding for mobile */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
+}

@@ -1,0 +1,152 @@
+/* styles.css */
+
+/* General page setup */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
+    width:100%;
+  }
+  
+  /* Chat Room Container */
+  .chat-room {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    height: 70vh;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  
+  /* Chat container */
+  .chat-container {
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  /* Chat message styling */
+  .chat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  /* AI Avatars (5 vertical slim rectangles) */
+  .ai-avatars {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 200px; /* Adjust height as needed */
+  }
+  
+  .ai-avatar {
+    width: 15px;
+    background-color: #3498db;
+    border-radius: 10px;
+    animation: bobble 1s ease-in-out infinite, changeShape 2s ease-in-out infinite;
+  }
+  
+  .ai-avatar:nth-child(1) {
+    height: 170px;
+  }
+  
+  .ai-avatar:nth-child(2) {
+    height: 180px;
+  }
+  
+  .ai-avatar:nth-child(3) {
+    height: 200px;
+  }
+  
+  .ai-avatar:nth-child(4) {
+    height: 180px;
+  }
+  
+  .ai-avatar:nth-child(5) {
+    height: 170px;
+  }
+  
+  @keyframes bobble {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes changeShape {
+    0%, 100% {
+      width: 15px;
+    }
+    50% {
+      width: 18px;
+    }
+  }
+  
+  /* User Avatar (circle to cloud animation) */
+  .user-avatar {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    animation: none;
+  }
+  
+  /* Start/Stop Conversation Button */
+  #start-recording {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    bottom: 90px;
+    transition: background-color 0.3s;
+  }
+  
+  #start-recording:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Cloud animation for the user when speaking */
+  @keyframes cloudShape {
+    0%, 100% {
+      border-radius: 50%;
+      transform: scale(1);
+    }
+    50% {
+      border-radius: 50%;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* For showing the cloud when user speaks */
+  .user-avatar.speaking {
+    animation: cloudShape 1s ease-in-out infinite;
+  }
+  

@@ -1,0 +1,85 @@
+:root {
+  --main-background: #09001b;
+  --primary-background: #13001f;
+  --secondary-backgroung: #1f003b;
+  --dashboard-page-inner: linear-gradient(270deg, #34004B50%, #13001e 100%);
+  --card: #17002e;
+  --color: #31a503;
+}
+
+body {
+  background: var(--main-background);
+}
+.back-primary-background {
+  background: var(--main-background) !important;
+}
+.primary-background {
+  background: var(--primary-background);
+}
+.secondary-background {
+  background: var(--secondary-backgroung);
+}
+.dashboard-side {
+  background: linear-gradient(180deg, #17002e 0%, #0d001c 100%);
+}
+.header-side {
+  background: linear-gradient(270deg, #100122 0%, #1f003b 100%);
+}
+
+.no-background {
+  background: transparent !important;
+}
+#header-info {
+  background: transparent;
+}
+
+.main-content {
+  background: linear-gradient(180deg (9, 0, 19, 0) 20%, #090013 100%);
+}
+.dashboard-page {
+  /* background: linear-gradient(270deg, #34004b 0%, #13001e 100%); */
+  background: var(--primary-background);
+  /* background: linear-gradient(270deg, #1F003B 10%, #100122 100%); */
+}
+.bg-card {
+  background-color: var(--card);
+  border-color: #13001f;
+}
+.bg-card-sec {
+  background: var(--primary-background);
+  border-color: #13001f;
+}
+.button-bg {
+  background: var(--color);
+  border-color: var(--color);
+  color: #fff;
+}
+.centerD{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center;
+}
+.button-bg:hover {
+  background-color: #090013;
+  border-color: var(--color);
+}
+
+.cap-color {
+  color: var(--color);
+}
+.card-line {
+  border-color: 1px #090013;
+}
+.progres-bg {
+  background: var(--color);
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.2s;
+}
+a:hover {
+  text-decoration: none;
+  color: #096c02;
+  transform: scale(1.05); /* Scale effect on hover */
+}

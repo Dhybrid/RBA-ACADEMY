@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="assets/reg1.css">
+</head>
+<body>
+    <div class="registration-container">
+        <!-- Progress Tracker -->
+        <div class="progress-indicator">
+            <div class="step-container">
+                <div id="step-1" class="step active" onclick="goToSection(1)">1</div>
+                <div class="line"></div>
+                <div id="step-2" class="step" onclick="goToSection(2)">2</div>
+                <div class="line"></div>
+                <div id="step-3" class="step" onclick="goToSection(3)">3</div>
+                <div class="line"></div>
+                <div id="step-4" class="step" onclick="goToSection(4)">4</div>
+            </div>
+        </div>
+
+        <!-- Form Sections -->
+        <div id="form-steps">
+            <!-- Section 1 -->
+            <div class="form-section" id="section-1">
+                <h2>Personal Information</h2>
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <span id="email-error" class="error">Please enter a valid email address.</span>
+                <span id="name-error" class="error">Name is required.</span>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="form-section" id="section-2">
+                <h2>Address</h2>
+                <input type="text" id="address" placeholder="Address" required>
+                <span id="address-error" class="error">Address is required.</span>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="form-section" id="section-3">
+                <h2>Phone Number</h2>
+                <input type="text" id="phone" placeholder="Phone Number" required>
+                <span id="phone-error" class="error">Phone number is required.</span>
+            </div>
+
+            <!-- Section 4 (Preview) -->
+            <div class="form-section" id="section-4">
+                <h2>Preview</h2>
+                <div id="preview-info"></div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button id="prev-btn" onclick="navigate(-1)" disabled>Previous</button>
+                <button id="next-btn" onclick="navigate(1)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+let currentStep = 1;
+const totalSteps = 4;
+
+const formSections = document.querySelectorAll('.form-section');
+const stepIndicators = document.querySelectorAll('.step');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+const previewInfo = document.getElementById('preview-info');
+
+function navigate(direction) {
+    const currentSection = document.getElementById(`section-${currentStep}`);
+    const nextSection = document.getElementById(`section-${currentStep + direction}`);
+    
+    if (direction === 1 && !validateStep()) return; // Validation before going forward
+
+    currentSection.classList.remove('active');
+    currentStep += direction;
+    nextSection.classList.add('active');
+    
+    updateStepIndicators();
+    toggleNavButtons();
+    updatePreview();
+}
+
+// function validateStep() {
+//     const currentSection = document.getElementById(`section-${currentStep}`);
+//     const inputs = currentSection.querySelectorAll('input[required]');
+//     let isValid = true;
+
+//     inputs.forEach(input => {
+//         if (!input.value) {
+//             isValid = false;
+//             input.classList.add('error');
+//             const errorSpan = document.getElementById(`${input.id}-error`);
+//             if (errorSpan) errorSpan.style.display = 'inline';
+//         } else {
+//             input.classList.remove('error');
+//             const errorSpan = document.getElementById(`${input.id}-error`);
+//             if (errorSpan) errorSpan.style.display = 'none';
+//         }
+//     });
+
+//     if (currentStep === 1) {
+//         const email = document.getElementById('email');
+//         const emailError = document.getElementById('email-error');
+//         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        
+//         if (!emailRegex.test(email.value)) {
+//             email.classList.add('error');
+//             emailError.style.display = 'inline';
+//             isValid = false;
+//         } else {
+//             email.classList.remove('error');
+//             emailError.style.display = 'none';
+//         }
+//     }
+    
+//     return isValid;
+// }
+
+function updateStepIndicators() {
+    stepIndicators.forEach((step, index) => {
+        if (index + 1 === currentStep) {
+            step.classList.add('active');
+        } else if (index + 1 < currentStep) {
+            step.classList.add('completed');
+        } else {
+            step.classList.remove('active', 'completed');
+        }
+    });
+}
+
+// function toggleNavButtons() {
+//     prevBtn.disabled = currentStep === 1;
+//     nextBtn.disabled = currentStep === totalSteps || !validateStep();
+// }
+
+function updatePreview() {
+    if (currentStep === totalSteps) {
+        previewInfo.innerHTML = `
+            <h3>Preview Your Information:</h3>
+            <p><strong>Name:</strong> ${document.getElementById('name').value}</p>
+            <p><strong>Email:</strong> ${document.getElementById('email').value}</p>
+            <p><strong>Address:</strong> ${document.getElementById('address').value}</p>
+            <p><strong>Phone:</strong> ${document.getElementById('phone').value}</p>
+        `;
+    }
+}
+
+function goToSection(step) {
+    if (step < currentStep) {
+        currentStep = step;
+        document.getElementById(`section-${currentStep}`).classList.add('active');
+        updateStepIndicators();
+        toggleNavButtons();
+        updatePreview();
+    }
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById(`section-${currentStep}`).classList.add('active');
+    updateStepIndicators();
+    toggleNavButtons();
+});
+
+    </script>
+</body>
+</html>

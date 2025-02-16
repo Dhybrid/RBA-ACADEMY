@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chat Room</title>
+  <link rel="stylesheet" href="assets/css/AI_chat_room.css">
+</head>
+<body>
+
+  <div class="chat-room">
+    <!-- AI Avatars (5 vertical slim rectangles) -->
+    <div class="ai-avatars">
+      <div class="ai-avatar"></div>
+      <div class="ai-avatar"></div>
+      <div class="ai-avatar"></div>
+      <div class="ai-avatar"></div>
+      <div class="ai-avatar"></div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="chat-container">
+      <div id="chat" class="chat">
+        <!-- Chat messages will appear here -->
+      </div>
+    </div>
+
+    <!-- User Avatar (circle that changes into a cloud when speaking) -->
+    <div id="user-avatar" class="user-avatar"></div>
+
+    <!-- Start/Stop Conversation Button -->
+    <button id="start-recording" class="btn">Start Conversation</button>
+  </div>
+
+  <script src="assets/js/AI_chat_room.js"></script>
+</body>
+</html>

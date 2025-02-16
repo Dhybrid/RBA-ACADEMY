@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link href="assets/boostrap/boostrap1/assets/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="assets/boostrap/boostrap1/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            flex: 1;
+        }
+
+        .header{
+            width: 100%;
+            padding: 20px;
+        }
+
+        .header a{
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .wallet-section {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            background-color: #fafbfc;
+        }
+
+        p{
+            padding: 5px;
+        }
+
+        span{
+            padding: 5px;
+            color: #000;
+        }
+
+        .wallet-section h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .balance-display {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #3498db;
+        }
+
+        .virtual-account {
+            text-align: center;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-weight: bold;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .conversion-section {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .funding-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .funding-option {
+            flex: 1 1 calc(50% - 15px);
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .funding-option:hover {
+            background-color: #2980b9;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            background-color: #f4f6f9;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Profile Section */
+        .profile-section {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+
+        .profile-section img {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          border: 2px solid #6a11cb;
+        }
+
+        .profile-info {
+          flex: 1;
+          margin-left: 15px;
+        }
+
+        .profile-info h3 {
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+
+        .profile-info p {
+          font-size: 14px;
+          color: #666;
+        }
+
+        .copy-btn {
+          background: #2575fc;
+          color: white;
+          padding: 5px 10px;
+          font-size: 12px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        /* Balance Section */
+        .balance {
+          background: linear-gradient(135deg, #2575fc, #6a11cb);
+          color: white;
+          padding: 30px;
+          border-radius: 10px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .balance h2 {
+          font-size: 28px;
+          margin-bottom: 10px;
+        }
+
+        .balance p {
+          font-size: 18px;
+        }
+
+        /* Action Buttons */
+        .actions {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px 0;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+
+        .action-button {
+          flex: 1;
+          background: linear-gradient(90deg, #ff7a18, #af002d);
+          color: white;
+          padding: 15px 20px;
+          text-align: center;
+          font-size: 16px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+
+        .action-button:hover {
+          background: linear-gradient(90deg, #ff512f, #dd2476);
+        }
+
+        /* Transaction History */
+        .transaction-history {
+          margin-top: 20px;
+        }
+
+        .transaction-history h3 {
+          font-size: 20px;
+          margin-bottom: 10px;
+        }
+
+        .transaction-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        .transaction-item {
+          display: flex;
+          justify-content: space-between;
+          background: #f4f4f4;
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+        }
+
+        .transaction-item p {
+          margin: 0;
+          font-size: 14px;
+        }
+
+        /* Pop-Up Modal */
+        .modal {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 90%;
+          max-width: 400px;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+          padding: 20px;
+          display: none;
+          z-index: 1000;
+          
+        }
+
+        .modal-header {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .modal input, .modal select {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+        }
+
+        .modal button {
+          background: #2575fc;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .close-modal {
+          float: right;
+          background: transparent;
+          color: #666;
+          font-size: 18px;
+          border: none;
+          cursor: pointer;
+        }
+
+        /* Overlay */
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: none;
+          z-index: 999;
+        }
+
+        /* Footer */
+        .footer {
+          margin-top: auto;
+          background: #333;
+          color: white;
+          text-align: center;
+          padding: 15px;
+          font-size: 14px;
+        }
+
+        .footer a {
+          color: #2575fc;
+          text-decoration: none;
+        }
+
+        .footer a:hover {
+          text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+      <a href=""><i class="ti-back-left"></i>Return Back</a>
+    </div>
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <img src="assets/image/se.png" alt="Profile Picture">
+      <div class="profile-info">
+        <h3>John Doe</h3>
+        <p>Account ID: <span id="account-id">12345XYZ</span></p>
+      </div>
+      <button class="copy-btn" onclick="copyAccountID()">Copy</button>
+    </div>
+    <h2>Wallet</h2>
+
+    <!-- Balance Section -->
+    <div class="balance">
+      <h2>Account Balance</h2>
+      <p>$1,234.56</p>
+      <p>coin: 700</p>
+    </div>
+
+    <!-- Virtual Account Number Display -->
+    <div class="wallet-section virtual-account">
+        Virtual Account Number: <span id="wallet-id">1234567890</span>
+        <button class="copy-btn" onclick="walletID()">Copy</button>
+    </div>
+
+    <!-- Conversion Section -->
+    <div class="wallet-section conversion-section">
+        <h3>Convert to Coins</h3>
+        <label for="amount">Amount to Convert ($)</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+
+        <button>Convert to Coins</button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button class="action-button" onclick="openModal('recharge')">Recharge</button>
+      <button class="action-button" onclick="openModal('convert')">Convert</button>
+      <button class="action-button" onclick="openModal('transfer')">Transfer</button>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="transaction-history">
+      <h3>Transaction History</h3>
+      <ul class="transaction-list">
+        <li class="transaction-item">
+          <p>Recharge via Bank Transfer</p>
+          <p>$500</p>
+        </li>
+        <li class="transaction-item">
+          <p>Converted to Coins</p>
+          <p>200 Coins</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" onclick="closeModal()"></div>
+
+    <!-- Pop-Up Modals -->
+    <div id="modal-recharge" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <div class="modal-header">Recharge Wallet</div>
+      <p class="">Pick your favorite way of funding your account</p><br>
+      <button class="action-button" onclick="openModal('bank')">Bank Transfer</button><br>
+      <br>
+      <button class="action-button" onclick="openModal('paypal')">PayPal</button>
+    </div>
+
+    <div id="modal-convert" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <div class="modal-header">Convert Balance</div>
+      <input type="text" placeholder="Enter Amount">
+      <p>You will receive: <strong>XX Coins</strong></p><br>
+      <button class="action-button" onclick="closeModal(); openModal('confirmation')">Convert</button>
+    </div>
+
+    <div id="modal-transfer" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <div class="modal-header">Transfer Funds</div>
+      <input type="text" placeholder="Recipient Account ID">
+      <input type="text" placeholder="Enter Amount">
+      <button class="action-button" onclick="closeModal(); openModal('confirmation');">Transfer</button>
+    </div>
+
+     <!-- virtual funding Pop-Up Modals -->
+    <div id="modal-bank" class="modal">
+        <button class="close-modal" onclick="closeModal()">×</button>
+        <div class="modal-header">Transfer Funds</div>
+        <div class="wallet-section virtual-account">
+        Virtual Account Number: <span id="wallet-id">1234567890</span>
+            <button class="copy-btn" onclick="walletID()">Copy</button>
+        </div>
+      <button class="close-modal" onclick="closeModal()">Ok</button>
+    </div>
+
+    <div id="modal-paypal" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+        <div class="modal-header">Transfer Funds</div>
+        <div class="wallet-section virtual-account">Virtual Account Number: <span id="wallet-id">1234567890</span>
+            <button class="copy-btn" onclick="walletID()">Copy</button>
+        </div>
+        <button class="close-modal" onclick="closeModal()">Ok</button>
+    </div>
+
+    <!-- confirmation pop Pop-Up Modals -->
+      <!-- Coin Converter confirmation -->
+    <!-- <div id="modal-convertFund" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <div class="modal-header">Transfer Funds</div>
+      <input type="text" placeholder="Recipient Account ID">
+      <input type="text" placeholder="Enter Amount">
+      <button class="action-button" onclick="openModal('confirmation')">Transfer</button>
+    </div> -->
+      <!-- Fund tranfer pop-Up Model -->
+    <!-- <div id="modal-fundTransfer" class="modal">
+      <button class="close-modal" onclick="closeModal()">×</button>
+      <div class="modal-header">Transfer Funds</div>
+      <input type="text" placeholder="Recipient Account ID">
+      <input type="text" placeholder="Enter Amount">
+      <button class="action-button" onclick="openModal('confirmation')">Transfer</button>
+    </div> -->
+</div>
+
+<!-- confirmation pop over -->
+<div class="col-lg-3 modal" id="modal-confirmation">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sweet Message</h4>
+            <div class="card-content">
+                <div class="sweetalert mt-5">
+                    <button class="btn btn-info btn sweet-message">Sweet Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /# card -->
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2025 RBA_Academy. All rights reserved.</p>
+    <p>
+        <a href="#">Terms of Service</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Contact Support</a>
+    </p>
+</div>
+
+<script>
+  function openModal(modalID) {
+    document.getElementById(`modal-${modalID}`).style.display = 'block';
+    document.querySelector('.overlay').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+    document.querySelector('.overlay').style.display = 'none';
+  }
+
+  function copyAccountID() {
+    const accountID = document.getElementById('account-id').textContent;
+    navigator.clipboard.writeText(accountID).then(() => {
+      alert('Account ID copied to clipboard!');
+    });
+  }
+
+  function walletID() {
+    const accountID = document.getElementById('wallet-id').textContent;
+    navigator.clipboard.writeText(accountID).then(() => {
+      alert('Account ID copied to clipboard!');
+    });
+  }
+</script>
+
+<script src="assets/boostrap/boostrap1/vendor/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="assets/boostrap/boostrap1/js/plugins-init/sweetalert.init.js"></script>
+
+</body>
+</html>

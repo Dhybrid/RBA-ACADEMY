@@ -1,0 +1,45 @@
+img {
+  height: 40px;
+  width: auto;
+}
+.cover-pic img {
+  width: 100%;
+  height: 17rem;
+}
+h5 {
+  display: flex;
+}
+.profile-personal-info {
+  display: flex;
+  flex-direction: column;
+}
+.profile-pic {
+  position: absolute;
+  margin-left: 100px;
+  margin-top: -60px;
+  margin-bottom: 20px;
+}
+.profile-pic img {
+  width: 100px !important;
+  height: 100px !important;
+  /* padding: 20px; */
+}
+@media (max-width: 736px) {
+  .set {
+    gap: 10px !important;
+  }
+  .card-body-pad {
+    padding: 0 20px !important;
+  }
+  h5 {
+    display: flex;
+    flex-wrap: 1 !important;
+    flex: 1 1 100px;
+  }
+  /* h5 .info {
+    font-size: 10px !important;
+  }
+  span {
+    font-size: 2px !important;
+  } */
+}

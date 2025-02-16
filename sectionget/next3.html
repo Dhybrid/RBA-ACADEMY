@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purpose & Morale Booster</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: #2575fc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: top 0.3s ease;
+        }
+
+        header.hidden {
+            top: -100px;
+            /* Hide header initially */
+        }
+
+        /* Change highlight color */
+        ::selection {
+            background: #ffcc00;
+            /* Highlight background color (yellow in this case) */
+            color: #000;
+            /* Text color when highlighted (black in this case) */
+        }
+
+        /* For Firefox */
+        ::-moz-selection {
+            background: #ffcc00;
+            /* Highlight background color */
+            color: #000;
+            /* Text color when highlighted */
+        }
+
+        /* Changing of colors end here */
+        #typing-effect {
+            display: inline-block;
+            border-right: 2px solid white;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: white;
+            }
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Video Section */
+        .video-container {
+            margin-bottom: 20px;
+        }
+
+        .video-container video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Description Section */
+        .description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .description h2 {
+            color: #2575fc;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        /* Question Section */
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question .options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .question .options label {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .question .options input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Next Button */
+        .next-btn {
+            padding: 12px 30px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: not-allowed;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+
+        .next-btn.active {
+            cursor: pointer;
+            opacity: 1;
+            background: #6a11cb;
+        }
+
+        .next-btn.active:hover {
+            background: #2575fc;
+        }
+
+        /* Pop-up Message */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            display: none;
+        }
+
+        .popup {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .popup p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .popup button:hover {
+            background: #6a11cb;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header {
+                font-size: 20px;
+                padding: 10px;
+            }
+
+            .description h2 {
+                font-size: 24px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .question p {
+                font-size: 16px;
+            }
+
+            .question .options {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .next-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="hidden">
+        <span id="typing-effect"></span>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Video Section -->
+        <div class="video-container">
+            <video id="motivation-video" controls>
+                <source src="../assets/videos/hero-video.webm" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description">
+            <h2>Unlock Your Potential</h2>
+            <p>This video will inspire you to take the next step in your journey. Remember, every great achievement
+                starts with a decision to try. Watch the video, reflect on its message, and let it fuel your
+                determination.</p>
+            <p>As you watch, think about how you can apply these lessons to your own life. Are you ready to embrace
+                change and take action?</p>
+        </div>
+
+        <!-- Question Section -->
+        <div class="question">
+            <p>Are you ready to take the next step?</p>
+            <div class="options">
+                <label><input type="radio" name="ready" value="yes"> Yes, I'm ready!</label>
+                <label><input type="radio" name="ready" value="no"> Not yet</label>
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="next-btn" id="next-btn" disabled>Next</button>
+    </main>
+
+    <!-- Pop-up Message -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+            <p>Please finish watching the video and select "Yes, I'm ready!" to proceed.</p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // Typing Effect
+        const typingText = "Stay motivated and keep moving forward!";
+        const typingElement = document.getElementById('typing-effect');
+        let index = 0;
+        let isDeleting = false;
+
+        function typeText() {
+            const currentText = typingText.slice(0, index);
+            typingElement.textContent = currentText;
+
+            if (!isDeleting && index < typingText.length) {
+                index++;
+            } else if (isDeleting && index > 0) {
+                index--;
+            } else {
+                isDeleting = !isDeleting;
+            }
+
+            setTimeout(typeText, isDeleting ? 100 : 200);
+        }
+
+        typeText();
+
+        // Header Behavior on Scroll
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.classList.remove('hidden');
+            } else {
+                header.classList.add('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Video and Button Logic
+        const video = document.getElementById('motivation-video');
+        const nextBtn = document.getElementById('next-btn');
+        const popupOverlay = document.getElementById('popup-overlay');
+        const readyOptions = document.querySelectorAll('input[name="ready"]');
+
+        // Check if video is fully watched and user selects "Yes"
+        function checkConditions() {
+            const isVideoWatched = video.currentTime >= video.duration - 1; // Allow 1-second buffer
+            const isReady = document.querySelector('input[name="ready"]:checked')?.value === 'yes';
+
+            if (isVideoWatched && isReady) {
+                nextBtn.disabled = false;
+                nextBtn.classList.add('active');
+            } else {
+                nextBtn.disabled = true;
+                nextBtn.classList.remove('active');
+            }
+        }
+
+        // Add event listeners
+        video.addEventListener('timeupdate', checkConditions);
+        readyOptions.forEach(option => option.addEventListener('change', checkConditions));
+
+        // Prevent premature clicking
+        nextBtn.addEventListener('click', () => {
+            if (nextBtn.disabled) {
+                popupOverlay.style.display = 'flex';
+            }
+        });
+
+        // Close Pop-up
+        function closePopup() {
+            popupOverlay.style.display = 'none';
+        }
+
+        // Close Pop-up when clicking outside
+        popupOverlay.addEventListener('click', (e) => {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+
+</html>

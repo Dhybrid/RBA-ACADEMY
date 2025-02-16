@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center</title>
+    <link rel="stylesheet" href="assets/css/help_center.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">MyLogo</div>
+            <div class="language-choice">
+                <select>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                </select>
+            </div>
+        </div>
+        <h1 class="hero-title">Advice and Answers from Our Team</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search for help articles...">
+        </div>
+    </header>
+
+    <main>
+        <section class="articles">
+            <a href="">
+                <div class="article" tabindex="0">
+                    <h2>Getting Started</h2>
+                    <p>Learn how to get started with Hack The Box.</p>
+                </div>
+            </a>
+            
+            <a href="">
+                <div class="article" tabindex="0">
+                    <h2>Technical Issues</h2>
+                    <p>Find solutions for common technical issues.</p>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="article" tabindex="0">
+                    <h2>Account Management</h2>
+                    <p>Manage your account settings and preferences.</p>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="article" tabindex="0">
+                    <h2>Payment Issues</h2>
+                    <p>Resolve issues related to payment and billing.</p>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hack The Box. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // script.js
+document.querySelectorAll('.article').forEach(article => {
+    article.addEventListener('mouseenter', () => {
+        const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`; // Generate a random hex color
+        article.style.borderColor = randomColor;
+    });
+
+    article.addEventListener('mouseleave', () => {
+        article.style.borderColor = 'transparent'; // Reset border color
+    });
+});
+
+    </script> <!-- Include your JavaScript file -->
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Testing - Intro Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+            /* overflow: hidden; */
+            background: #f4f4f9; /* Fallback background */
+        }
+
+        /* Video Background */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7; /* Reduce opacity for better readability */
+        }
+
+        /* Container */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            margin: 20px; /* Add margin to avoid hitting edges */
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            color: #2575fc;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group select:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+
+        .form-group .radio-group,
+        .form-group .checkbox-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-group .radio-group label,
+        .form-group .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-group .radio-group input[type="radio"],
+        .form-group .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        /* Image Placement */
+        .form-group .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group .image-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2575fc;
+        }
+
+        /* Next Button */
+        .next-btn {
+            padding: 12px 30px;
+            background: #2575fc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: not-allowed;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .next-btn.active {
+            cursor: pointer;
+            opacity: 1;
+            background: #6a11cb;
+        }
+
+        .next-btn.active:hover {
+            background: #2575fc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group select {
+                padding: 10px;
+            }
+
+            .next-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video id="video-background" autoplay muted loop>
+        <source src="background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Welcome to the User Testing!</h1>
+            <p>Please fill out the form below to get started. All fields are required.</p>
+        </header>
+
+        <!-- Form -->
+        <form id="intro-form">
+            <!-- Image Placement -->
+            <div class="form-group">
+                <div class="image-container">
+                    <img src="user-icon.png" alt="User Icon">
+                </div>
+            </div>
+
+            <!-- Name Field -->
+            <div class="form-group">
+                <label for="name">Full Name <span style="color: red;">*</span></label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email Address <span style="color: red;">*</span></label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Age Group (Radio Buttons) -->
+            <div class="form-group">
+                <label>Age Group <span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="age" value="18-24" required> 18-24</label>
+                    <label><input type="radio" name="age" value="25-34"> 25-34</label>
+                    <label><input type="radio" name="age" value="35+"> 35+</label>
+                </div>
+            </div>
+
+            <!-- Gender (Radio Buttons) -->
+            <div class="form-group">
+                <label>Gender <span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <!-- Education Level (Dropdown) -->
+            <div class="form-group">
+                <label for="education">Education Level <span style="color: red;">*</span></label>
+                <select id="education" required>
+                    <option value="" disabled selected>Select your education level</option>
+                    <option value="High School">High School</option>
+                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                    <option value="Master's Degree">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                </select>
+            </div>
+
+            <!-- Preferred Learning Style (Checkboxes) -->
+            <div class="form-group">
+                <label>Preferred Learning Style <span style="color: red;">*</span></label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="learning-style" value="Visual" required> Visual</label>
+                    <label><input type="checkbox" name="learning-style" value="Auditory"> Auditory</label>
+                    <label><input type="checkbox" name="learning-style" value="Kinesthetic"> Kinesthetic</label>
+                </div>
+            </div>
+
+            <!-- Next Button -->
+            <button type="button" class="next-btn" id="next-btn" disabled>Next</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('intro-form');
+        const nextBtn = document.getElementById('next-btn');
+        const inputs = form.querySelectorAll('input, select');
+
+        // Function to check if all required fields are filled
+        function checkForm() {
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (input.type === 'radio') {
+                    const radioGroup = document.getElementsByName(input.name);
+                    if (!Array.from(radioGroup).some(radio => radio.checked)) {
+                        allFilled = false;
+                    }
+                } else if (input.type === 'checkbox') {
+                    const checkboxGroup = document.getElementsByName(input.name);
+                    if (!Array.from(checkboxGroup).some(checkbox => checkbox.checked)) {
+                        allFilled = false;
+                    }
+                } else if (input.required && !input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+            nextBtn.disabled = !allFilled;
+            nextBtn.classList.toggle('active', allFilled);
+        }
+
+        // Add event listeners to all inputs
+        inputs.forEach(input => {
+            input.addEventListener('input', checkForm);
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                input.addEventListener('change', checkForm);
+            }
+        });
+    </script>
+</body>
+</html>

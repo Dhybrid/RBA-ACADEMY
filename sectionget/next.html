@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            justify-content: space-between;
+        }
+        .user-info i {
+            margin-right: 10px;
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .course-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .course-card {
+            border: 2px solid #ccc;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+        }
+        .course-card:hover, .course-card.selected {
+            border-color: #007bff;
+            background: #e6f0ff;
+        }
+        .course-card img {
+            width: 60px;
+            height: 60px;
+        }
+        .next-btn {
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: not-allowed;
+            opacity: 0.5;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .next-btn.active {
+            cursor: pointer;
+            opacity: 1;
+        }
+        .preview-section {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            padding: 20px;
+        }
+        .preview-content {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .preview-section button {
+            margin-top: 10px;
+            padding: 12px;
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <span><i class="fa fa-user"></i> <span id="username">John Doe</span></span>
+            <span><i class="fa fa-envelope"></i> <span id="email">johndoe@example.com</span></span>
+        </div>
+        
+        <div class="section-title">Select a Course:</div>
+        <div class="course-container">
+            <div class="course-card" onclick="selectCourse(this, 'Python Basics', '$50')">
+                <div>
+                    <strong>Python Basics</strong>
+                    <p>Learn the fundamentals of Python.</p>
+                </div>
+                <img src="python.png" alt="Python">
+            </div>
+            <div class="course-card" onclick="selectCourse(this, 'Web Development', '$70')">
+                <div>
+                    <strong>Web Development</strong>
+                    <p>Master HTML, CSS, and JavaScript.</p>
+                </div>
+                <img src="webdev.png" alt="Web Development">
+            </div>
+        </div>
+        
+        <button class="next-btn" id="next-btn" onclick="showPreview()">Next</button>
+    </div>
+    
+    <div class="preview-section" id="preview-section">
+        <div class="preview-content">
+            <h3>Preview Selection</h3>
+            <p><strong>Name:</strong> <span id="preview-name"></span></p>
+            <p><strong>Email:</strong> <span id="preview-email"></span></p>
+            <p><strong>Selected Course:</strong> <span id="preview-course"></span></p>
+            <p><strong>Price:</strong> <span id="preview-price"></span></p>
+            <button onclick="saveForLater()">Save and Pay Later</button>
+            <button onclick="proceedToPayment()">Save and Move to Payment</button>
+        </div>
+    </div>
+    
+    <script>
+        let selectedCourse = "";
+        let selectedPrice = "";
+        
+        function selectCourse(element, course, price) {
+            document.querySelectorAll('.course-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedCourse = course;
+            selectedPrice = price;
+            document.getElementById('next-btn').classList.add('active');
+            document.getElementById('next-btn').disabled = false;
+        }
+        
+        function showPreview() {
+            if (!selectedCourse) return;
+            document.getElementById('preview-name').innerText = document.getElementById('username').innerText;
+            document.getElementById('preview-email').innerText = document.getElementById('email').innerText;
+            document.getElementById('preview-course').innerText = selectedCourse;
+            document.getElementById('preview-price').innerText = selectedPrice;
+            document.getElementById('preview-section').style.display = 'block';
+        }
+        
+        function saveForLater() {
+            alert("Course saved for later!");
+        }
+        
+        function proceedToPayment() {
+            alert("Proceeding to payment...");
+        }
+    </script>
+</body>
+</html>

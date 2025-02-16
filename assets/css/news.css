@@ -1,0 +1,153 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* =========== REUSED CSS =========== */
+
+
+/* =========== MAIN =========== */
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  overflow: hidden;
+}
+/* header {
+  margin-top: 30px;
+  ma
+} */
+
+@keyframes menuPopup {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* =========== BLOG ============== */
+/* Benefits Section Styles */
+.benefits-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+}
+
+.blog .section-subtitle {
+  text-align: center;
+  margin: 15px;
+  color: #00d065;
+}
+
+.blog .section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.benefits-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.benefits-header h4 {
+  color: #00d065;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.benefits-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.benefits-title h2 {
+  font-size: 44px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.benefits-title p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.benefit-card {
+  padding: 30px;
+  background: #13001f;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card .number {
+  color: #00d065;
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.benefit-card p {
+  color: #dedcdc;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.read-more {
+  color: #00d065;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.view-features {
+  text-align: center;
+  margin-top: 40px;
+}
+.blog-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}

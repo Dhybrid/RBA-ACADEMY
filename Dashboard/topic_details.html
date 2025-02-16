@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/topic_details.css">
+  <title>Topic Details</title>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="topic-details-header">
+    <a href="topics.html" class="return-link">Back to Topics</a>
+    <h1 class="topic-title">Topic 1: Python Basics</h1>
+  </header>
+
+  <!-- Full Explanation Section -->
+  <div class="topic-details-container">
+    <section class="topic-description">
+      <h2>Introduction to Python</h2>
+      <p>Python is a powerful and easy-to-learn programming language. It has a simple syntax that allows you to write clean and readable code.</p>
+    </section>
+
+    <!-- Image Section -->
+    <section class="topic-image">
+      <img src="python-image.jpg" alt="Python Programming" />
+    </section>
+
+    <!-- Code Section with Copy Feature -->
+    <section class="code-section">
+      <h3>Sample Python Code</h3>
+      <pre><code id="codeBlock">print("Hello, Python!")</code></pre>
+      <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+      <h3>Topic Video</h3>
+      <!-- You can replace the src with the actual YouTube link or your server link -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+
+    <!-- Finish Link -->
+    <section class="finish-link">
+      <a href="topics.html" class="finish-btn">Finish and Go Back to Topics</a>
+    </section>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 Your Website. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById('codeBlock');
+      const text = code.innerText;
+      
+      // Create a temporary input element to copy the text
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      
+      // Alert the user
+      alert('Code copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

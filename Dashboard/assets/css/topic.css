@@ -1,0 +1,140 @@
+/* Resetting margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+.topic-header {
+  background-image: url('../image/for_topic_back.png'); /* Replace with your header image */
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.header-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.return-link {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.module-name {
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Topic Section Styles */
+.topic-container {
+  display: flex;
+  flex-direction: column;  /* Arrange topics in a column */
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.topic {
+  background-color: #f4f4f4;
+  padding: 20px;
+  width: 80%; /* Adjust width */
+  display: flex;
+  justify-content: space-between; /* Align elements horizontally */
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.topic:hover {
+  border: 2px solid #ff5733; /* Change border color dynamically */
+}
+
+.topic h2 {
+  font-size: 24px;
+  margin-right: 20px; /* Space between the topic name and button */
+  flex-grow: 1; /* Allow topic name to take up available space */
+}
+
+.start-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.start-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Exam Section Styles */
+.exam-section {
+  background-color: #f8f8f8;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exam-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.exam-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.exam-section .start-btn {
+  background-color: #28a745;
+  padding: 12px 30px;
+}
+
+.exam-section .start-btn:hover {
+  background-color: #218838;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footer .social-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  text-decoration: underline;
+}

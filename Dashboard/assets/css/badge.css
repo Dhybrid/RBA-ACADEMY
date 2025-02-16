@@ -1,0 +1,65 @@
+.badge-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between badges */
+  padding: 20px;
+}
+
+.badge-item {
+  position: relative; /* Position for absolute child */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items */
+  background-color: #f8f9fa; /* Light background for each badge item */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s; /* Smooth hover effect */
+/*  overflow: hidden;*/
+}
+
+.badge-item:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.badge-image, img {
+  width: 100%; /* Fixed width for badge image */
+  height: 80px; /* Fixed height for badge image */
+  object-fit: cover;
+  margin-bottom: 10px; /* Spacing below the image */
+  border-radius: 10px 10px 0 0 ;
+}
+.badge-info{
+  padding: 15px;
+  margin-top: -10px;
+  border-radius:0 0 10px 10px;
+}
+.badge-info h4 {
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center; /* Center align the badge title */
+}
+
+.badge-info p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center; /* Center align the badge description */
+}
+
+.badge-hover-info {
+  position: absolute; /* Position the hover info */
+  bottom: 15px; /* Position it above the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  color: white; /* Text color */
+/*  padding: 10px;*/
+  border-radius: 5px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s; /* Smooth transition */
+  width: 90%; /* Width of the hover info box */
+  text-align: center; /* Center text */
+}
+
+.badge-item:hover .badge-hover-info {
+  opacity: 1; /* Show on hover */
+}

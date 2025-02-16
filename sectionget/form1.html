@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohort Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for error highlighting */
+        .is-invalid {
+            border-color: red !important;
+        }
+
+        .invalid-feedback {
+            color: red;
+            font-size: 0.875em;
+        }
+
+        /* Progress numbers styling */
+        .progress-numbers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .progress-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .progress-number.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .progress-number.completed {
+            background-color: #198754;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <!-- Progress Numbers -->
+        <div class="progress-numbers">
+            <div class="progress-number completed">1</div>
+            <div class="progress-number">2</div>
+            <div class="progress-number">3</div>
+            <div class="progress-number">4</div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress mb-4">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+
+        <!-- Form -->
+        <form id="registration-form" method="POST" action="">
+            <!-- Page 1: Personal & Location Details -->
+            <div id="page-1" class="form-page">
+                <h4 class="mb-4">Personal & Location Details</h4>
+                <!-- Personal Details -->
+                <div class="mb-3">
+                    <label for="full-name" class="form-label">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label><br>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="gender" id="gender-male" class="form-check-input" value="Male" required>
+                        <label for="gender-male" class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="gender" id="gender-female" class="form-check-input" value="Female" required>
+                        <label for="gender-female" class="form-check-label">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="gender" id="gender-other" class="form-check-input" value="Other" required>
+                        <label for="gender-other" class="form-check-label">Other</label>
+                    </div>
+                    <div class="invalid-feedback">Please select your gender.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="dob" class="form-label">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your date of birth.</div>
+                </div>
+                <!-- Contact Information -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <div class="input-group">
+                        <select id="country-code" name="country_code" class="form-select" required>
+                            <option value="+234">+234 (Nigeria)</option>
+                            <option value="+254">+254 (Kenya)</option>
+                            <option value="+27">+27 (South Africa)</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your number" required>
+                    </div>
+                    <div class="invalid-feedback">Please enter your phone number.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="alt-phone" class="form-label">Alternative Phone Number (Optional)</label>
+                    <input type="tel" name="alt_phone" id="alt-phone" class="form-control">
+                </div>
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <select id="country" name="country" class="form-select" required>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="South Africa">South Africa</option>
+                    </select>
+                    <div class="invalid-feedback">Please select your country.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="form-label">State/Province</label>
+                    <input type="text" id="state" name="state" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your state/province.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" id="city" name="city" class="form-control" required>
+                    <div class="invalid-feedback">Please enter your city.</div>
+                </div>
+                <button type="button" class="btn btn-primary next-btn">Next</button>
+            </div>
+
+            <!-- Page 2: Course & Learning Preferences -->
+            <div id="page-2" class="form-page d-none">
+                <h4 class="mb-4">Course & Learning Preferences</h4>
+                <div class="mb-3">
+                    <label for="course-reason" class="form-label">Brief Bio About Yourself</label>
+                    <textarea id="course-reason" name="bio" class="form-control" rows="3" required></textarea>
+                    <div class="invalid-feedback">Please enter a brief bio.</div>
+                </div>
+                <!-- Learning Preferences -->
+                <div class="mb-3">
+                    <label for="learning-style" class="form-label">Preferred Learning Style</label>
+                    <select id="learning-style" name="learning_style" class="form-select" required>
+                        <option value="Visual">Visual (e.g., videos and diagrams)</option>
+                        <option value="Auditory">Auditory (e.g., lectures and discussions)</option>
+                        <option value="Reading/Writing">Reading/Writing (e.g., manuals and text materials)</option>
+                        <option value="Hands-On">Hands-On (e.g., practice and experimentation)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a learning style.</div>
+                </div>
+                <div class="mb-3 d-none" id="learning-other-div">
+                    <label for="learning-other" class="form-label">Specify Your Learning Preference</label>
+                    <input type="text" name="learning_other" id="learning-other" class="form-control">
+                </div>
+                <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                <button type="button" class="btn btn-primary next-btn">Next</button>
+            </div>
+
+            <!-- Page 3: Final Confirmation -->
+            <div id="page-3" class="form-page d-none">
+                <h4 class="mb-4">Final Confirmation</h4>
+                <p>Review your details below and confirm:</p>
+                <ul id="summary" class="list-group mb-4"></ul>
+                <div class="form-check">
+                    <input type="checkbox" id="confirm" class="form-check-input" required>
+                    <label for="confirm" class="form-check-label">I confirm that the information provided is accurate.</label>
+                    <div class="invalid-feedback">Please confirm the information.</div>
+                </div>
+                <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                <button type="button" class="btn btn-primary next-btn">Next</button>
+            </div>
+
+            <!-- Page 4: Preview & Submit -->
+            <div id="page-4" class="form-page d-none">
+                <h4 class="mb-4">Preview & Submit</h4>
+                <div id="preview-content" class="mb-4"></div>
+                <button type="button" class="btn btn-secondary prev-btn">Previous</button>
+                <button type="submit" id="submitButton" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="asset/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get all form pages and progress elements
+        const pages = document.querySelectorAll('.form-page');
+        const progressBar = document.getElementById('progress-bar');
+        const progressNumbers = document.querySelectorAll('.progress-number');
+        let currentPage = 0;
+
+        // Function to validate the current page
+        const validatePage = (pageIndex) => {
+            const inputs = pages[pageIndex].querySelectorAll('input, select, textarea');
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.required && !input.value.trim()) {
+                    input.classList.add('is-invalid');
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                }
+            });
+            return isValid;
+        };
+
+        // Function to update the progress bar and numbers
+        const updateProgress = (pageIndex) => {
+            const progressPercentage = ((pageIndex + 1) / pages.length) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+
+            progressNumbers.forEach((number, index) => {
+                if (index <= pageIndex) {
+                    number.classList.add('completed');
+                } else {
+                    number.classList.remove('completed');
+                }
+                if (index === pageIndex) {
+                    number.classList.add('active');
+                } else {
+                    number.classList.remove('active');
+                }
+            });
+        };
+
+        // Function to update the preview content
+        const updatePreview = () => {
+            const fullName = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const bio = document.getElementById('course-reason').value;
+
+            document.getElementById('preview-content').innerHTML = `
+                <p><strong>Full Name:</strong> ${fullName}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Phone:</strong> ${phone}</p>
+                <p><strong>Bio:</strong> ${bio}</p>
+            `;
+        };
+
+        // Next button functionality
+        document.querySelectorAll('.next-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (validatePage(currentPage)) {
+                    pages[currentPage].classList.add('d-none');
+                    currentPage++;
+                    pages[currentPage].classList.remove('d-none');
+                    updateProgress(currentPage);
+
+                    // If the next page is the preview page, update the preview content
+                    if (currentPage === pages.length - 1) {
+                        updatePreview();
+                    }
+                }
+            });
+        });
+
+        // Previous button functionality
+        document.querySelectorAll('.prev-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentPage > 0) {
+                    pages[currentPage].classList.add('d-none');
+                    currentPage--;
+                    pages[currentPage].classList.remove('d-none');
+                    updateProgress(currentPage);
+                }
+            });
+        });
+
+        // Submit button functionality
+        document.querySelector('#submitButton').addEventListener('click', () => {
+            if (validatePage(currentPage)) {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+
+</html>
