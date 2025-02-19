@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  /* background-color: #000; */
+  /* color: #333; */
+  line-height: 1.6;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.body-header {
+  position: relative;
+  background: url("../image/job_role.png") /*no-repeat center/cover*/;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  /* margin: 0 -50px; */
+}
+
+.body-header h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  padding-top: 50px;
+  text-shadow: 2px 2px 5px #000;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20pz;
+}
+
+.body-header p {
+  font-size: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.buttons a {
+  color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  background: linear-gradient(45deg, #0f9900, #067000);
+  transition: transform 0.3s, background 0.3s;
+}
+.buttons a:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.buttons button {
+  background: linear-gradient(45deg, #01ae01, #017501fb);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.buttons button:hover {
+  background: linear-gradient(45deg, #ff007b, #ffbf00);
+  transform: scale(1.1);
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 10px;
+  background: linear-gradient(45deg, #018f01, #0b7300);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.search-bar button:hover {
+  background: linear-gradient(45deg, #097c00, #14ab00);
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .body-header p {
+    padding: 30px;
+    font-size: 10px;
+  }
+  p .less-font-size{
+    font-size: 5px !important;
+  }
+
+  @keyframes stackEffect {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
