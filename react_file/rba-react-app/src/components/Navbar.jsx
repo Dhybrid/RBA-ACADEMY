@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/image/icon/RBA4.png"; // Adjust the path as needed
+import logo from "../assets/image/icon/RBA4.png"; 
 
 const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
 
           <ul className="topnavbar-items">
             <li className="nav-items">
-              <Link to="home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="nav-items">
               <Link to="/cert">Certification</Link>
