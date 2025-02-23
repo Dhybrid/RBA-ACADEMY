@@ -1,4 +1,7 @@
-// import '../src/styles/App.css'
+import "./assets/css/index.css";
+import "./assets/central1/css/background.css";
+import "./assets/central1/css/main.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -7,17 +10,15 @@ import Certificate from "./pages/Cert";
 import Courses from "./pages/Courses";
 import FAQ from "./pages/Faq";
 import Modules from "./pages/Modules";
-import Path from "./pages/Path"
+import Path from "./pages/Path";
 import Blog from "./pages/Blog";
 // import NotFound from './pages/NotFound';
 
 // import Navbar from "./components/Navbar";
 
-
 const App = () => {
   return (
     <Router>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -30,7 +31,6 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
-    
     </Router>
   );
 };
