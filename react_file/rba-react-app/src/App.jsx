@@ -12,6 +12,7 @@ import FAQ from "./pages/Faq";
 import Modules from "./pages/Modules";
 import Path from "./pages/Path";
 import Blog from "./pages/Blog";
+
 // import NotFound from './pages/NotFound';
 
 // import Navbar from "./components/Navbar";
@@ -29,7 +30,8 @@ const App = () => {
         <Route path="/modules" element={<Modules />} />
         <Route path="/path" element={<Path />} />
         <Route path="/blog" element={<Blog />} />
-        {/* <Route path="*" element={<NotFound />} /> */}
+      
+       
       </Routes>
     </Router>
   );
